@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages()%}
+    {% if mensagens%}
+        {% for msg in mensagens%}
+        <div class="message">
+            {{msg}}
+        </div>
+        {% endfor %}
+    {% endif %}
+    <form action="/save" method="post">
+        <fieldset>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome">
+
+        <label for="categoria">Categoria:</label>
+        <input type="text" name="categoria" id="categoria">
+
+        <label for="classificacao_etaria">Classificação Etária:</label>
+        <input type="number" name="classificacao_etaria" id="classificacao_etaria">
+
+        <button type="submit">Salvar</button>
+        </fieldset>
+    </form>
+{% endblock %}
